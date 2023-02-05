@@ -1,12 +1,13 @@
 const asyncHandler = require('express-async-handler')
 
 const Character = require('../models/characterModel')
+const User = require('../models/userModel')
 
 // @desc        Get character
 // @route       GET /api/character
 // @access      Private
 const getCharacters = asyncHandler(async (req, res) => {
-    const characters = await Character.find()
+    const characters = await Character.find({user: req.user.id})
 
     res.status(200).json(characters)
 })
@@ -31,6 +32,7 @@ const addCharacter = asyncHandler(async (req, res) => {
     }
 
     const character = await Character.create({
+        user: req.user.id,
         name: req.body.name,
         race: req.body.race,
         class: req.body.class
@@ -48,6 +50,20 @@ const updateCharacter = asyncHandler(async (req, res) => {
     if (!character) {
         res.status(400)
         throw new Error('Character not found')
+    }
+
+    const user = await User.findById(req.user.id)
+
+    // Check for user
+    if (!user) {
+        res.status(401)
+        throw new Error('User not found')
+    }
+
+    // Make sure the logged in user matches the character user
+    if (character.user.toString() !== user.id) {
+        res.status(401)
+        throw new Error('User not authorized')
     }
 
     const updatedCharacter = await Character.findByIdAndUpdate(req.params.id, req.body, {
@@ -68,8 +84,21 @@ const deleteCharacter = asyncHandler(async (req, res) => {
         throw new Error('Character not found')
     }
 
-    await character.remove()
+    const user = await User.findById(req.user.id)
 
+    // Check for user
+    if (!user) {
+        res.status(401)
+        throw new Error('User not found')
+    }
+
+    // Make sure the logged in user matches the character user
+    if (character.user.toString() !== user.id) {
+        res.status(401)
+        throw new Error('User not authorized')
+    }
+
+    await character.remove()
 
     res.status(200).json({id: req.params.id})
 })

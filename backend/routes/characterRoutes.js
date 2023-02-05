@@ -5,9 +5,10 @@ const { getCharacters,
     updateCharacter, 
     deleteCharacter 
 } = require('../controllers/characterController')
+const {protect} = require('../middleware/authMiddleware')
 
-router.route('/').get(getCharacters).post(addCharacter)
-router.route('/:id').put(updateCharacter).delete(deleteCharacter)
+router.route('/').get(protect, getCharacters).post(protect, addCharacter)
+router.route('/:id').put(protect, updateCharacter).delete(protect, deleteCharacter)
 
 module.exports = router
 
