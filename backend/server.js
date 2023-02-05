@@ -12,7 +12,8 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
-app.use('/api/character', require('./routes/characterRoutes'))
+app.use('/api/characters', require('./routes/characterRoutes'))
+app.use('/api/users', require('./routes/userRoutes'))
 
 app.use(errorHandler)
 

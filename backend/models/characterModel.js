@@ -1,7 +1,12 @@
 const mongoose = require('mongoose')
 
 const characterSchema = mongoose.Schema(
-    {
+    {   
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: 'User'
+        },
         name: {
             type: String,
             required: [true, 'Please pick a name for your character'],
@@ -16,7 +21,7 @@ const characterSchema = mongoose.Schema(
         },
     }, 
     {
-    timestamps: true
+        timestamps: true
     }
 )
 

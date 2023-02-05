@@ -14,7 +14,7 @@ const getCharacters = asyncHandler(async (req, res) => {
 // @desc        Set character
 // @route       POST /api/character
 // @access      Private
-const setCharacter = asyncHandler(async (req, res) => {
+const addCharacter = asyncHandler(async (req, res) => {
     if (!req.body.name) {
         res.status(400)
         throw new Error('Please add a name field')
@@ -76,7 +76,7 @@ const deleteCharacter = asyncHandler(async (req, res) => {
 
 module.exports = {
     getCharacters,
-    setCharacter,
+    addCharacter,
     updateCharacter,
     deleteCharacter
 }
