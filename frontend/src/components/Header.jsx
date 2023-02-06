@@ -12,7 +12,7 @@ function Header() {
                 <Link to='/login'>
                     <FaSignInAlt /> Login 
                 </Link>
-            </li>
+            </li> 
             <li>
                 <Link to='/register'>
                     <FaUser /> Register
