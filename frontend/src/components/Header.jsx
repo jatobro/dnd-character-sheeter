@@ -5,7 +5,7 @@ function Header() {
   return (
     <header className='header'>
         <div className='logo'>
-            <Link to='/'>D&D Sheeter</Link>
+            <Link to='/'>Sheetr</Link>
         </div>
         <ul>
             <li>
@@ -13,11 +13,6 @@ function Header() {
                     <FaSignInAlt /> Login 
                 </Link>
             </li> 
-            <li>
-                <Link to='/register'>
-                    <FaUser /> Register
-                </Link>
-            </li>
         </ul>
     </header>
   )

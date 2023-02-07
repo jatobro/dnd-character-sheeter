@@ -1,6 +1,9 @@
 function Dashboard() {
   return (
-    <div>Dashboard</div>
+    <div>
+      <h1>Welcome to Sheetr</h1>
+      <p>Create and manage D&D character sheets on the web</p>
+    </div>
   )
 }
 

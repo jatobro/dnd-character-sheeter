@@ -92,7 +92,7 @@ h3 {
   gap: 10px;
 }
 
-.goal {
+.character {
   background-color: #f4f4f4;
   margin: 10px 0;
   padding: 20px 0 10px;
@@ -189,6 +189,10 @@ h3 {
   border-color: #000 transparent #555 transparent;
   border-radius: 50%;
   animation: spin 1.2s linear infinite;
+}
+
+.link {
+  text-decoration: underline;
 }
 
 @keyframes spin {

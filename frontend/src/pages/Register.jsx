@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import {FaUser} from 'react-icons/fa'
+import {Link} from 'react-router-dom'
+
 function Register() {
     const [formData, setFormData] = useState({
         name: '',
@@ -79,6 +81,9 @@ function Register() {
                     <button type='submit' className='btn btn-block'>
                         Submit
                     </button>
+                </div>
+                <div className='form-group'>
+                    Already have a Sheetr account? Please <Link className='link' to='/login'>log in</Link>
                 </div>
             </form>
         </section>

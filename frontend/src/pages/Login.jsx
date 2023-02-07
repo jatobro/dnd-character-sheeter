@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import {FaSignInAlt} from 'react-icons/fa'
+import {Link} from 'react-router-dom'
+
 function Login() {
     const [formData, setFormData] = useState({
         email: '',
@@ -56,6 +58,9 @@ function Login() {
                     <button type='submit' className='btn btn-block'>
                         Submit
                     </button>
+                </div>
+                <div className='form-group'>
+                    No Sheetr account? Please <Link className='link' to='/register'>register</Link>
                 </div>
             </form>
         </section>
