@@ -13,8 +13,6 @@ function Login() {
     })
 
     const {email, password} = formData
-<<<<<<< HEAD
-=======
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -32,7 +30,6 @@ function Login() {
 
         dispatch(reset())
     }, [user, isError, isSuccess, message, navigate, dispatch])
->>>>>>> 8d2427fa469a53254ce75c55c2bdd2fcca00d904
 
     const onChange = (e) => {
         setFormData((prevState) => ({
